@@ -24,6 +24,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
 
+  sqflite: ^1.1.0
+  path_provider: ^0.5.0+1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -46,10 +49,16 @@ flutter:
   #  - images/a_dot_ham.jpeg
 
   assets:
-    - images/peste.png
+    - images/castel1.png
     - images/cavaler.png
     - images/tabla.png
     - images/cerc.png
+    - images/cerc_negru.png
+    - images/cerc_alb.png
+    - images/drumorizontal1.png
+    - images/drum930.png
+    - images/pustiu1.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

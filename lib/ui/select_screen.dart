@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:moara_flutter/logica/tabla.dart';
 import 'play_screen.dart';
 import 'custom_button.dart';
 import 'custom_titles.dart';
 
 class SelectScreen extends StatefulWidget {
-
-
+  final Tabla tabla;
+  SelectScreen(this.tabla);
 
   @override
   State<StatefulWidget> createState() {
-    return _SelectScreenState();
+    return _SelectScreenState(tabla);
   }
 
 }
 
 class _SelectScreenState extends State<SelectScreen>{
+
+  final Tabla tabla;
+  _SelectScreenState(this.tabla);
 
   int _i = 0;
   bool _ok = false;
@@ -32,7 +36,7 @@ class _SelectScreenState extends State<SelectScreen>{
         break;
       case 1:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => PlayScreen()));
+            context, MaterialPageRoute(builder: (context) => PlayScreen(tabla)));
         break;
     }
   }
@@ -53,20 +57,97 @@ class _SelectScreenState extends State<SelectScreen>{
       ),
       body: new Container(
         alignment: Alignment.center,
-        child: Column(
+        child: GridView.count(
+          primary: false,
+          padding: const EdgeInsets.all(20.0),
+          crossAxisSpacing: 0.0,
+          crossAxisCount: 6,
           children: <Widget>[
-            new CustomTitle('Select Oponent'),
-            new Container(
-              child: new Row(
-                children: <Widget>[
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
                   new InkWell(
                     child: Image.asset(
-                      'images/peste.png',
+                      'images/castel1.png',
                       width: 200,
                       height: 200,
                     ),
                     onTap: (){debugPrint('Ai apasat pe peste si ianinte era i = $_i si ok = $_ok');_select(1); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
                   ),
+                  new InkWell(
+                    child: Image.asset(
+                      'images/drumorizontal1.png',
+                      width: 200,
+                      height: 200,
+                    ),
+                  ),
+            new InkWell(
+              child: Image.asset(
+                'images/drum930.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
                   new InkWell(
                     child: Image.asset(
                       'images/cavaler.png',
@@ -75,17 +156,316 @@ class _SelectScreenState extends State<SelectScreen>{
                     ),
                     onTap: (){debugPrint('Ai apasat pe cavaler si ianinte era i = $_i si ok = $_ok');_select(2); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
                   ),
-                ],
-              ),
-              decoration: BoxDecoration(
-                color: Colors.redAccent.shade100,
-                gradient: new LinearGradient(
-                    colors: [Colors.black12, Colors.red],
-                    begin: Alignment.bottomCenter,
-                    end: new Alignment(0, 0),
-                    tileMode: TileMode.clamp),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
               ),
             ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/castel1.png',
+                width: 200,
+                height: 200,
+              ),
+              onTap: (){debugPrint('Ai apasat pe peste si ianinte era i = $_i si ok = $_ok');_select(1); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/cavaler.png',
+                width: 200,
+                height: 200,
+              ),
+              onTap: (){debugPrint('Ai apasat pe cavaler si ianinte era i = $_i si ok = $_ok');_select(2); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/cavaler.png',
+                width: 200,
+                height: 200,
+              ),
+              onTap: (){debugPrint('Ai apasat pe cavaler si ianinte era i = $_i si ok = $_ok');_select(2); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/cavaler.png',
+                width: 200,
+                height: 200,
+              ),
+              onTap: (){debugPrint('Ai apasat pe cavaler si ianinte era i = $_i si ok = $_ok');_select(2); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/cavaler.png',
+                width: 200,
+                height: 200,
+              ),
+              onTap: (){debugPrint('Ai apasat pe cavaler si ianinte era i = $_i si ok = $_ok');_select(2); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/pustiu1.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            new InkWell(
+              child: Image.asset(
+                'images/castel1.png',
+                width: 200,
+                height: 200,
+              ),
+              onTap: (){debugPrint('Ai apasat pe cavaler si ianinte era i = $_i si ok = $_ok');_select(2); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
+            ),
+            new Container(),
+            new Container(),
+            new Container(),
+            new Container(),
+            new InkWell(
+              child: Image.asset(
+                'images/castel1.png',
+                width: 200,
+                height: 200,
+              ),
+              onTap: (){debugPrint('Ai apasat pe peste si ianinte era i = $_i si ok = $_ok');_select(1); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
+            ),
+            new Container(),
+            new Container(),
+            new Container(),
+            new Container(),
+            new InkWell(
+              child: Image.asset(
+                'images/castel1.png',
+                width: 200,
+                height: 200,
+              ),
+              onTap: (){debugPrint('Ai apasat pe cavaler si ianinte era i = $_i si ok = $_ok');_select(2); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
+            ),
+            new Container(),
+            new Container(),
+            new Container(),
+            new Container(),
+            new InkWell(
+              child: Image.asset(
+                'images/cavaler.png',
+                width: 200,
+                height: 200,
+              ),
+              onTap: (){debugPrint('Ai apasat pe cavaler si ianinte era i = $_i si ok = $_ok');_select(2); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
+            ),
+            new Container(),
+            new InkWell(
+              child: Image.asset(
+                'images/cavaler.png',
+                width: 200,
+                height: 200,
+              ),
+              onTap: (){debugPrint('Ai apasat pe cavaler si ianinte era i = $_i si ok = $_ok');_select(2); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
+            ),
+            new Container(),
+            new Container(),
+            new Container(),
+            new Container(),
+            new InkWell(
+              child: Image.asset(
+                'images/cavaler.png',
+                width: 200,
+                height: 200,
+              ),
+              onTap: (){debugPrint('Ai apasat pe cavaler si ianinte era i = $_i si ok = $_ok');_select(2); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
+            ),
+            new Container(),
+            new InkWell(
+              child: Image.asset(
+                'images/cavaler.png',
+                width: 200,
+                height: 200,
+              ),
+              onTap: (){debugPrint('Ai apasat pe cavaler si ianinte era i = $_i si ok = $_ok');_select(2); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
+            ),
+            new Container(),
+            new Container(),
+            new Container(),
+            new Container(),
+            new InkWell(
+              child: Image.asset(
+                'images/cavaler.png',
+                width: 200,
+                height: 200,
+              ),
+              onTap: (){debugPrint('Ai apasat pe cavaler si ianinte era i = $_i si ok = $_ok');_select(2); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
+            ),
+            new Container(),
+            new InkWell(
+              child: Image.asset(
+                'images/cavaler.png',
+                width: 200,
+                height: 200,
+              ),
+              onTap: (){debugPrint('Ai apasat pe cavaler si ianinte era i = $_i si ok = $_ok');_select(2); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
+            ),
+            new Container(),
+            new Container(),
+            new Container(),
+            new Container(),
+            new InkWell(
+              child: Image.asset(
+                'images/castel1.png',
+                width: 200,
+                height: 200,
+              ),
+              onTap: (){debugPrint('Ai apasat pe cavaler si ianinte era i = $_i si ok = $_ok');_select(2); debugPrint(' iar acuma este i = $_i si ok = $_ok');},
+            ),
+            new Container(),
+
             new CustomButton(_ok, 'Start')
           ],
         ),
