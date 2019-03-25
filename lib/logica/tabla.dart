@@ -8,6 +8,7 @@ class Tabla {
   String _culoare;
   String _rand;
   int _pieseRamaseEtapa1;
+  int _pieseRamaseEtapa1AI;
   int _p1;
   int _p2;
   int _p3;
@@ -39,6 +40,7 @@ class Tabla {
       this._culoare,
       this._rand,
       this._pieseRamaseEtapa1,
+      this._pieseRamaseEtapa1AI,
       this._p1,
       this._p2,
       this._p3,
@@ -71,6 +73,7 @@ class Tabla {
     this._culoare = obj['culoare'];
     this._rand = obj['rand'];
     this._pieseRamaseEtapa1 = obj['pieseRamaseEtapa1'];
+    this._pieseRamaseEtapa1AI = obj['pieseRamaseEtapa1AI'];
     this._p1 = obj['p1'];
     this._p2 = obj['p2'];
     this._p3 = obj['p3'];
@@ -105,6 +108,7 @@ class Tabla {
     map['culoare'] = _culoare;
     map['rand'] = _rand;
     map['pieseRamaseEtapa1'] = _pieseRamaseEtapa1;
+    map['pieseRamaseEtapa1AI'] = _pieseRamaseEtapa1AI;
     map['p1'] = _p1;
     map['p2'] = _p2;
     map['p3'] = _p3;
@@ -139,6 +143,7 @@ class Tabla {
     this._culoare = map['culoare'];
     this._rand = map['rand'];
     this._pieseRamaseEtapa1 = map['pieseRamaseEtapa1'];
+    this._pieseRamaseEtapa1AI = map['pieseRamaseEtapa1AI'];
     this._p1 = map['p1'];
     this._p2 = map['p2'];
     this._p3 = map['p3'];
@@ -188,6 +193,10 @@ class Tabla {
 
   set pieseRamaseEtapa1(int value) {
     _pieseRamaseEtapa1 = value;
+  }
+
+  set pieseRamaseEtapa1AI(int value) {
+    _pieseRamaseEtapa1AI = value;
   }
 
   set p1(int value) {
@@ -300,6 +309,8 @@ class Tabla {
 
   int get pieseRamaseEtapa1 => _pieseRamaseEtapa1;
 
+  int get pieseRamaseEtapa1AI => _pieseRamaseEtapa1AI;
+
   int get p1 => _p1;
 
   int get p2 => _p2;
@@ -347,33 +358,6 @@ class Tabla {
   int get p23 => _p23;
 
   int get p24 => _p24;
-
-//  var tabla = [
-//    0, //1
-//    0, //2
-//    0, //3
-//    0, //4
-//    0, //5
-//    0, //6
-//    0, //7
-//    0, //8
-//    0, //9
-//    0, //10
-//    0, //11
-//    0, //12
-//    0, //13
-//    0, //14
-//    0, //15
-//    0, //16
-//    0, //17
-//    0, //18
-//    0, //19
-//    0, //20
-//    0, //21
-//    0, //22
-//    0, //23
-//    0, //24
-//  ];
 
 }
 

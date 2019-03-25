@@ -4,7 +4,7 @@ import 'package:moara_flutter/logica/tabla.dart';
 
 var db = new DatabaseHelper();
 
-Future<int> onCercClick(int i) async {
+Future<Tabla> onCercClick(int i) async {
 
 
 Tabla tabla = await getTabla();
@@ -284,7 +284,7 @@ Tabla tabla = await getTabla();
       _x = tabla.p24;
       break;
   }
-  return _x;
+  return tabla;
 }
 
 
@@ -304,7 +304,7 @@ Future<Tabla> getTabla() async{
 
   // Daca e joc nou, tabla e initializata si salvata
   if (tabla == null) {
-    tabla = new Tabla('level', 1, 'alb', 'om', 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    tabla = new Tabla('level', 1, 'alb', 'om', 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
     await db.saveGameState(tabla);
   }

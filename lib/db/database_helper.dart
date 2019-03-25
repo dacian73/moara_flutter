@@ -14,6 +14,7 @@ class DatabaseHelper {
   final String columnCuloareJucator = 'culoare';
   final String coloanaRandul = 'rand';
   final String coloanaEtapa1PieseJucator = 'pieseRamaseEtapa1';
+  final String coloanaPieseRamaseEtapa1AI= 'pieseRamaseEtapa1AI';
   final String columnP1 = 'p1';
   final String columnP2 = 'p2';
   final String columnP3 = 'p3';
@@ -59,13 +60,13 @@ class DatabaseHelper {
   initializeDb() async {
     Directory documentDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentDirectory.path, 'savedGameDb');
-    var myDb = await openDatabase(path, version: 1, onCreate: _onCreate);
+    var myDb = await openDatabase(path, version: 2, onCreate: _onCreate);
     return myDb;
   }
 
   void _onCreate(Database db, int version) async {
     await db.execute(
-        "CREATE TABLE $table ($columnID INTEGER PRIMARY KEY, $columnLevel TEXT, $columnEtapaJoc INTEGER, $columnCuloareJucator TEXT, $coloanaRandul TEXT, $coloanaEtapa1PieseJucator INTEGER, $columnP1 INTEGER, $columnP2 INTEGER, $columnP3 INTEGER, $columnP4 INTEGER, $columnP5 INTEGER, $columnP6 INTEGER, $columnP7 INTEGER, $columnP8 INTEGER, $columnP9 INTEGER, $columnP10 INTEGER, $columnP11 INTEGER, $columnP12 INTEGER, $columnP13 INTEGER, $columnP14 INTEGER, $columnP15 INTEGER, $columnP16 INTEGER, $columnP17 INTEGER, $columnP18 INTEGER, $columnP19 INTEGER, $columnP20 INTEGER, $columnP21 INTEGER, $columnP22 INTEGER, $columnP23 INTEGER, $columnP24 INTEGER);");
+        "CREATE TABLE $table ($columnID INTEGER PRIMARY KEY, $columnLevel TEXT, $columnEtapaJoc INTEGER, $columnCuloareJucator TEXT, $coloanaRandul TEXT, $coloanaEtapa1PieseJucator INTEGER, $coloanaPieseRamaseEtapa1AI INTEGER, $columnP1 INTEGER, $columnP2 INTEGER, $columnP3 INTEGER, $columnP4 INTEGER, $columnP5 INTEGER, $columnP6 INTEGER, $columnP7 INTEGER, $columnP8 INTEGER, $columnP9 INTEGER, $columnP10 INTEGER, $columnP11 INTEGER, $columnP12 INTEGER, $columnP13 INTEGER, $columnP14 INTEGER, $columnP15 INTEGER, $columnP16 INTEGER, $columnP17 INTEGER, $columnP18 INTEGER, $columnP19 INTEGER, $columnP20 INTEGER, $columnP21 INTEGER, $columnP22 INTEGER, $columnP23 INTEGER, $columnP24 INTEGER);");
   }
 
   // Insert

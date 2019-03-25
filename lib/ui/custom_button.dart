@@ -51,7 +51,7 @@ class CustomButton extends StatelessWidget {
             ),
             onPressed: () async {
               var db = new DatabaseHelper();
-              Tabla tabla = await getNewTabla();
+              Tabla tabla = getNewTabla();
               if (title == 'New Game') {
                 db.deleteSavedGame();
 
@@ -70,16 +70,7 @@ class CustomButton extends StatelessWidget {
     }
   }
 }
-
-Future<Tabla> getNewTabla() async {
-  var db = new DatabaseHelper();
-  Tabla tabla = await db.getGameState();
-
-  // Daca e joc nou, tabla e initializata si salvata
-  if (tabla == null) {
-    tabla = new Tabla('level', 1, 'alb', 'om', 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-    await db.saveGameState(tabla);
-  }
-  return tabla;
+Tabla getNewTabla() {
+  return new Tabla('level', 1, 'alb', 'om', 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 }
