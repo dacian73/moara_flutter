@@ -1,5 +1,8 @@
-import 'package:moara_flutter/logica/tabla.dart';
+import 'dart:math';
+
 import 'package:moara_flutter/db/database_helper.dart';
+import 'package:moara_flutter/logica/ai/logicaPentruToateEtapele.dart';
+import 'package:moara_flutter/logica/tabla.dart';
 
 Tabla randulCalculatoruluiEtapa1(Tabla tabla) {
   List<Pozitie> lista = [
@@ -38,8 +41,19 @@ Tabla randulCalculatoruluiEtapa1(Tabla tabla) {
 
   // Verifica daca e etapa 1 altfel treci la 2
   if ((tabla.etapa == 1) && (tabla.pieseRamaseEtapa1AI > 0)) {
-    // Alegere in ordinea de dupa bubblesort
-    switch (lista[0].pozitie) {
+    // Strange toate pozitiile cu cele mai bune mutari
+    List<Pozitie> top = [];
+    for (int i = 0; i < lista.length; i ++) {
+      if (lista[0].valoare == lista[i].valoare) {
+        top.add(lista[i]);
+      }
+    }
+    // Alege o mutare dintre cele mai bune
+    final _random = new Random();
+    int i = top[_random.nextInt(top.length)].pozitie;
+
+
+    switch (i) {
       case 1:
         {
           tabla.p1 = 2;
@@ -193,16 +207,7 @@ Tabla randulCalculatoruluiEtapa1(Tabla tabla) {
   return tabla;
 }
 
-class Pozitie {
-  int pozitie;
-  int valoare;
-  int status;
 
-  Pozitie(this.pozitie, this.valoare, this.status);
-  bool ocupat() {
-    if (status != 0) {return true;} else return false;
-  }
-}
 
 List<Pozitie> bubbleSort(List<Pozitie> lista) {
   if (lista == null || lista.length == 0) return null;

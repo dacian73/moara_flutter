@@ -15,7 +15,7 @@ class PlayScreen extends StatefulWidget {
   }
 }
 
-class PlayScreenState extends State<PlayScreen> {
+class PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
 
   Tabla tabla;
   PlayScreenState(this.tabla);
@@ -150,15 +150,30 @@ class PlayScreenState extends State<PlayScreen> {
         }
       case 1:
         {
+          if (tabla.selectare == x) {
           return new InkWell(
             child: Container(
-              color: Colors.white,
+              child: Container(color: Colors.white,),
+              color: Colors.red,
+              padding: EdgeInsets.all(2.0),
               margin: EdgeInsets.all(4.0),
             ),
             onTap: () {
               _click(x);
             },
           );
+          } else {
+            return new InkWell(
+              child: Container(
+                color: Colors.white,
+                margin: EdgeInsets.all(4.0),
+              ),
+              onTap: () {
+                _click(x);
+              },
+            );
+          }
+          break;
         }
       case 2:
         {

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:moara_flutter/db/database_helper.dart';
 import 'package:moara_flutter/logica/tabla.dart';
-import 'select_screen.dart';
+
 import 'play_screen.dart';
+import 'select_screen.dart';
 
 class CustomButton extends StatelessWidget {
   final bool activ;
@@ -72,5 +73,20 @@ class CustomButton extends StatelessWidget {
 }
 Tabla getNewTabla() {
   return new Tabla('level', 1, 'alb', 'om', 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      0);
 }

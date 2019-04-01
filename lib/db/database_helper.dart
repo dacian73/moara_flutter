@@ -1,8 +1,9 @@
 import 'dart:io';
+
+import 'package:moara_flutter/logica/tabla.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:moara_flutter/logica/tabla.dart';
 
 class DatabaseHelper {
   static final DatabaseHelper _databaseHelper =
@@ -39,6 +40,8 @@ class DatabaseHelper {
   final String columnP22 = 'p22';
   final String columnP23 = 'p23';
   final String columnP24 = 'p24';
+  final String columnSelect = 'selectare';
+  final String columnPieseDeLuatOm = 'pieseDeLuatOm';
 
   // Just one DatabaseHelper
   factory DatabaseHelper() => _databaseHelper;
@@ -66,7 +69,7 @@ class DatabaseHelper {
 
   void _onCreate(Database db, int version) async {
     await db.execute(
-        "CREATE TABLE $table ($columnID INTEGER PRIMARY KEY, $columnLevel TEXT, $columnEtapaJoc INTEGER, $columnCuloareJucator TEXT, $coloanaRandul TEXT, $coloanaEtapa1PieseJucator INTEGER, $coloanaPieseRamaseEtapa1AI INTEGER, $columnP1 INTEGER, $columnP2 INTEGER, $columnP3 INTEGER, $columnP4 INTEGER, $columnP5 INTEGER, $columnP6 INTEGER, $columnP7 INTEGER, $columnP8 INTEGER, $columnP9 INTEGER, $columnP10 INTEGER, $columnP11 INTEGER, $columnP12 INTEGER, $columnP13 INTEGER, $columnP14 INTEGER, $columnP15 INTEGER, $columnP16 INTEGER, $columnP17 INTEGER, $columnP18 INTEGER, $columnP19 INTEGER, $columnP20 INTEGER, $columnP21 INTEGER, $columnP22 INTEGER, $columnP23 INTEGER, $columnP24 INTEGER);");
+        "CREATE TABLE $table ($columnID INTEGER PRIMARY KEY, $columnLevel TEXT, $columnEtapaJoc INTEGER, $columnCuloareJucator TEXT, $coloanaRandul TEXT, $coloanaEtapa1PieseJucator INTEGER, $coloanaPieseRamaseEtapa1AI INTEGER, $columnP1 INTEGER, $columnP2 INTEGER, $columnP3 INTEGER, $columnP4 INTEGER, $columnP5 INTEGER, $columnP6 INTEGER, $columnP7 INTEGER, $columnP8 INTEGER, $columnP9 INTEGER, $columnP10 INTEGER, $columnP11 INTEGER, $columnP12 INTEGER, $columnP13 INTEGER, $columnP14 INTEGER, $columnP15 INTEGER, $columnP16 INTEGER, $columnP17 INTEGER, $columnP18 INTEGER, $columnP19 INTEGER, $columnP20 INTEGER, $columnP21 INTEGER, $columnP22 INTEGER, $columnP23 INTEGER, $columnP24 INTEGER, $columnSelect INTEGER, $columnPieseDeLuatOm INTEGER);");
   }
 
   // Insert

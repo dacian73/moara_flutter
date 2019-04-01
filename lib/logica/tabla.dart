@@ -1,5 +1,4 @@
-import 'package:sqflite/sqflite.dart';
-import 'package:path_provider/path_provider.dart';
+
 
 class Tabla {
   int _id;
@@ -33,6 +32,8 @@ class Tabla {
   int _p22;
   int _p23;
   int _p24;
+  int _selectare;
+  int _pieseDeLuatOm;
 
   Tabla(
       this._level,
@@ -64,7 +65,9 @@ class Tabla {
       this._p21,
       this._p22,
       this._p23,
-      this._p24);
+      this._p24,
+      this._selectare,
+      this._pieseDeLuatOm);
 
   Tabla.map(dynamic obj) {
     this._id = obj['id'];
@@ -98,6 +101,8 @@ class Tabla {
     this._p22 = obj['p22'];
     this._p23 = obj['p23'];
     this._p24 = obj['p24'];
+    this._selectare = obj['selectare'];
+    this._pieseDeLuatOm = obj['pieseDeLuatOm'];
   }
 
   Map<String, dynamic> toMap() {
@@ -133,6 +138,8 @@ class Tabla {
     map['p22'] = _p22;
     map['p23'] = _p23;
     map['p24'] = _p24;
+    map['selectare'] = _selectare;
+    map['pieseDeLuatOm'] = _pieseDeLuatOm;
     return map;
   }
 
@@ -168,6 +175,8 @@ class Tabla {
     this._p22 = map['p22'];
     this._p23 = map['p23'];
     this._p24 = map['p24'];
+    this._selectare = map['selectare'];
+    this._pieseDeLuatOm = map['pieseDeLuatOm'];
   }
 
   // SETTERS
@@ -295,6 +304,14 @@ class Tabla {
     _p24 = value;
   }
 
+  set selectare(int value) {
+    _selectare = value;
+  }
+
+  set pieseDeLuatOm(int value) {
+    _pieseDeLuatOm = value;
+  }
+
   // GETTERS
 
   int get id => _id;
@@ -358,6 +375,10 @@ class Tabla {
   int get p23 => _p23;
 
   int get p24 => _p24;
+
+  int get selectare => _selectare;
+
+  int get pieseDeLuatOm => _pieseDeLuatOm;
 
 }
 
