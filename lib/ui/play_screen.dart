@@ -144,7 +144,7 @@ class PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
               margin: EdgeInsets.all(4.0),
             ),
             onTap: () {
-              _click(x);
+              _click(x, statusPozitie);
             },
           );
         }
@@ -159,7 +159,7 @@ class PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
               margin: EdgeInsets.all(4.0),
             ),
             onTap: () {
-              _click(x);
+              _click(x, statusPozitie);
             },
           );
           } else {
@@ -169,7 +169,7 @@ class PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
                 margin: EdgeInsets.all(4.0),
               ),
               onTap: () {
-                _click(x);
+                _click(x, statusPozitie);
               },
             );
           }
@@ -183,25 +183,20 @@ class PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
               margin: EdgeInsets.all(4.0),
             ),
             onTap: () {
-              _click(x);
+              _click(x, statusPozitie);
             },
           );
         }
     }
   }
-  void _click(int x) async {
 
-    tabla = await onCercClick(x);
+  void _click(int pozitie, statusPozitie) async {
+    debugPrint('status pozitie clickuita este $statusPozitie');
+    bool isSelectata = (tabla.selectare == pozitie);
+    tabla = await onCercClick(pozitie, statusPozitie, isSelectata);
 
-    setState(() {
-    });
-    randulAI();
+    setState(() {});
   }
-  void randulAI() async {
 
-      tabla = randulCalculatoruluiEtapa1(tabla);
 
-      setState(() {
-      });
-  }
 } // end of PlayScreenState

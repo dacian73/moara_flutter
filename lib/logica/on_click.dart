@@ -3,1324 +3,48 @@ import 'package:moara_flutter/db/database_helper.dart';
 import 'package:moara_flutter/logica/ai/etapa2.dart';
 import 'package:moara_flutter/logica/ai/logicaPentruToateEtapele.dart';
 import 'package:moara_flutter/logica/tabla.dart';
+import 'package:moara_flutter/logica/ai/etapa1.dart';
 
 var db = new DatabaseHelper();
 
-Future<Tabla> onCercClick(int i) async {
+Future<Tabla> onCercClick(int pozitie, statusPozitie, bool isSelectata) async {
   Tabla tabla = await getTabla();
 
   if (tabla.pieseDeLuatOm == 0) {
-    if (tabla.etapa == 1) {
+    if ((tabla.etapa == 1) &&
+        (statusPozitie == 0) &&
+        (tabla.pieseRamaseEtapa1 > 0)) {
       // Aseaza o piesa pe tabla
-      switch (i) {
-        case 1:
-          {
-            if ((tabla.p1 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p1 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-
-            break;
-          }
-        case 2:
-          {
-            if ((tabla.p2 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p2 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 3:
-          {
-            if ((tabla.p3 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p3 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 4:
-          {
-            if ((tabla.p4 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p4 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 5:
-          {
-            if ((tabla.p5 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p5 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 6:
-          {
-            if ((tabla.p6 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p6 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 7:
-          {
-            if ((tabla.p7 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p7 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 8:
-          {
-            if ((tabla.p8 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p8 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 9:
-          {
-            if ((tabla.p9 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p9 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 10:
-          {
-            if ((tabla.p10 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p10 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 11:
-          {
-            if ((tabla.p11 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p11 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 12:
-          {
-            if ((tabla.p12 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p12 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 13:
-          {
-            if ((tabla.p13 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p13 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 14:
-          {
-            if ((tabla.p14 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p14 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 15:
-          {
-            if ((tabla.p15 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p15 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 16:
-          {
-            if ((tabla.p16 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p16 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 17:
-          {
-            if ((tabla.p17 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p17 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 18:
-          {
-            if ((tabla.p18 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p18 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 19:
-          {
-            if ((tabla.p19 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p19 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 20:
-          {
-            if ((tabla.p20 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p20 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 21:
-          {
-            if ((tabla.p21 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p21 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 22:
-          {
-            if ((tabla.p22 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p22 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 23:
-          {
-            if ((tabla.p23 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p23 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
-        case 24:
-          {
-            if ((tabla.p24 == 0) && (tabla.pieseRamaseEtapa1 > 0)) {
-              tabla.p24 = 1;
-              tabla = plaseazaPiesa(i, tabla);
-            }
-            break;
-          }
+      tabla = plaseazaPiesa(pozitie, tabla);
+      if (tabla.rand == 'ai') {
+        tabla = randulCalculatoruluiEtapa1(tabla);
       }
     } else if (tabla.etapa == 2) {
       bool iesire = false;
 
-      //Selecteaza o piesa
-      switch (i) {
-        case 1:
-          {
-            if ((tabla.p1 == 1) && (tabla.selectare != 1)) {
-              tabla.selectare = 1;
-              iesire = true;
-            } else if ((tabla.p1 == 1) && (tabla.selectare == 1)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-
-            break;
-          }
-        case 2:
-          {
-            if ((tabla.p2 == 1) && (tabla.selectare != 2)) {
-              tabla.selectare = 2;
-              iesire = true;
-            } else if ((tabla.p2 == 1) && (tabla.selectare == 2)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-
-            break;
-          }
-        case 3:
-          {
-            if ((tabla.p3 == 1) && (tabla.selectare != 3)) {
-              tabla.selectare = 3;
-              iesire = true;
-            } else if ((tabla.p3 == 1) && (tabla.selectare == 3)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-
-            break;
-          }
-        case 4:
-          {
-            if ((tabla.p4 == 1) && (tabla.selectare != 4)) {
-              tabla.selectare = 4;
-              iesire = true;
-            } else if ((tabla.p4 == 1) && (tabla.selectare == 4)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-
-            break;
-          }
-        case 5:
-          {
-            if ((tabla.p5 == 1) && (tabla.selectare != 5)) {
-              tabla.selectare = 5;
-              iesire = true;
-            } else if ((tabla.p5 == 1) && (tabla.selectare == 5)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-
-            break;
-          }
-        case 6:
-          {
-            if ((tabla.p6 == 1) && (tabla.selectare != 6)) {
-              tabla.selectare = 6;
-              iesire = true;
-            } else if ((tabla.p6 == 1) && (tabla.selectare == 6)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-
-            break;
-          }
-        case 7:
-          {
-            if ((tabla.p7 == 1) && (tabla.selectare != 2)) {
-              tabla.selectare = 7;
-              iesire = true;
-            } else if ((tabla.p7 == 1) && (tabla.selectare == 7)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-
-            break;
-          }
-        case 8:
-          {
-            if ((tabla.p8 == 1) && (tabla.selectare != 8)) {
-              tabla.selectare = 8;
-              iesire = true;
-            } else if ((tabla.p8 == 1) && (tabla.selectare == 8)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
-        case 9:
-          {
-            if ((tabla.p9 == 1) && (tabla.selectare != 9)) {
-              tabla.selectare = 9;
-              iesire = true;
-            } else if ((tabla.p9 == 1) && (tabla.selectare == 9)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
-        case 10:
-          {
-            if ((tabla.p10 == 1) && (tabla.selectare != 10)) {
-              tabla.selectare = 10;
-              iesire = true;
-            } else if ((tabla.p10 == 1) && (tabla.selectare == 10)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
-        case 11:
-          {
-            if ((tabla.p11 == 1) && (tabla.selectare != 11)) {
-              tabla.selectare = 11;
-              iesire = true;
-            } else if ((tabla.p11 == 1) && (tabla.selectare == 11)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
-        case 12:
-          {
-            if ((tabla.p12 == 1) && (tabla.selectare != 12)) {
-              tabla.selectare = 12;
-              iesire = true;
-            } else if ((tabla.p12 == 1) && (tabla.selectare == 12)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
-        case 13:
-          {
-            if ((tabla.p13 == 1) && (tabla.selectare != 13)) {
-              tabla.selectare = 13;
-              iesire = true;
-            } else if ((tabla.p13 == 1) && (tabla.selectare == 13)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
-        case 14:
-          {
-            if ((tabla.p14 == 1) && (tabla.selectare != 14)) {
-              tabla.selectare = 14;
-              iesire = true;
-            } else if ((tabla.p14 == 1) && (tabla.selectare == 14)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
-        case 15:
-          {
-            if ((tabla.p15 == 1) && (tabla.selectare != 15)) {
-              tabla.selectare = 15;
-              iesire = true;
-            } else if ((tabla.p15 == 1) && (tabla.selectare == 15)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
-        case 16:
-          {
-            if ((tabla.p16 == 1) && (tabla.selectare != 16)) {
-              tabla.selectare = 16;
-              iesire = true;
-            } else if ((tabla.p16 == 1) && (tabla.selectare == 16)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
-        case 17:
-          {
-            if ((tabla.p17 == 1) && (tabla.selectare != 17)) {
-              tabla.selectare = 17;
-              iesire = true;
-            } else if ((tabla.p17 == 1) && (tabla.selectare == 17)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
-        case 18:
-          {
-            if ((tabla.p18 == 1) && (tabla.selectare != 18)) {
-              tabla.selectare = 18;
-              iesire = true;
-            } else if ((tabla.p18 == 1) && (tabla.selectare == 18)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
-        case 19:
-          {
-            if ((tabla.p19 == 1) && (tabla.selectare != 19)) {
-              tabla.selectare = 19;
-              iesire = true;
-            } else if ((tabla.p19 == 1) && (tabla.selectare == 19)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
-        case 20:
-          {
-            if ((tabla.p20 == 1) && (tabla.selectare != 20)) {
-              tabla.selectare = 20;
-              iesire = true;
-            } else if ((tabla.p20 == 1) && (tabla.selectare == 20)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
-        case 21:
-          {
-            if ((tabla.p21 == 1) && (tabla.selectare != 21)) {
-              tabla.selectare = 21;
-              iesire = true;
-            } else if ((tabla.p21 == 1) && (tabla.selectare == 21)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
-        case 22:
-          {
-            if ((tabla.p22 == 1) && (tabla.selectare != 22)) {
-              tabla.selectare = 22;
-              iesire = true;
-            } else if ((tabla.p22 == 1) && (tabla.selectare == 22)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
-        case 23:
-          {
-            if ((tabla.p23 == 1) && (tabla.selectare != 23)) {
-              tabla.selectare = 23;
-              iesire = true;
-            } else if ((tabla.p23 == 1) && (tabla.selectare == 23)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
-        case 24:
-          {
-            if ((tabla.p24 == 1) && (tabla.selectare != 24)) {
-              tabla.selectare = 24;
-              iesire = true;
-            } else if ((tabla.p24 == 1) && (tabla.selectare == 24)) {
-              tabla.selectare = -1;
-              iesire = true;
-            }
-            break;
-          }
+      //Selecteaza/ Deselecteaza o piesa
+      if ((statusPozitie == 1) && (tabla.selectare != pozitie)) {
+        tabla.selectare = pozitie;
+        iesire = true;
+      } else if ((statusPozitie == 1) && (tabla.selectare == pozitie)) {
+        tabla.selectare = -1;
+        iesire = true;
       }
 
       if (!iesire) {
         // Mutare piesa selectata
-        switch (i) {
-          case 1:
-            {
-              if ((tabla.p1 == 0) && (tabla.selectare == 2)) {
-                tabla.selectare = -1;
-                tabla.p1 = 1;
-                tabla.p2 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p1 == 0) && (tabla.selectare == 10)) {
-                tabla.selectare = -1;
-                tabla.p1 = 1;
-                tabla.p10 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 2:
-            {
-              if ((tabla.p2 == 0) && (tabla.selectare == 1)) {
-                tabla.selectare = -1;
-                tabla.p1 = 0;
-                tabla.p2 = 1;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p2 == 0) && (tabla.selectare == 3)) {
-                tabla.selectare = -1;
-                tabla.p3 = 0;
-                tabla.p2 = 1;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p2 == 0) && (tabla.selectare == 5)) {
-                tabla.selectare = -1;
-                tabla.p5 = 0;
-                tabla.p2 = 1;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 3:
-            {
-              if ((tabla.p3 == 0) && (tabla.selectare == 2)) {
-                tabla.selectare = -1;
-                tabla.p3 = 1;
-                tabla.p2 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p3 == 0) && (tabla.selectare == 15)) {
-                tabla.selectare = -1;
-                tabla.p3 = 1;
-                tabla.p15 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 4:
-            {
-              if ((tabla.p4 == 0) && (tabla.selectare == 5)) {
-                tabla.selectare = -1;
-                tabla.p4 = 1;
-                tabla.p5 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p4 == 0) && (tabla.selectare == 11)) {
-                tabla.selectare = -1;
-                tabla.p4 = 1;
-                tabla.p11 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 5:
-            {
-              if ((tabla.p5 == 0) && (tabla.selectare == 2)) {
-                tabla.selectare = -1;
-                tabla.p5 = 1;
-                tabla.p2 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p5 == 0) && (tabla.selectare == 8)) {
-                tabla.selectare = -1;
-                tabla.p5 = 1;
-                tabla.p8 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p5 == 0) && (tabla.selectare == 4)) {
-                tabla.selectare = -1;
-                tabla.p5 = 1;
-                tabla.p4 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p5 == 0) && (tabla.selectare == 6)) {
-                tabla.selectare = -1;
-                tabla.p5 = 1;
-                tabla.p6 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 6:
-            {
-              if ((tabla.p6 == 0) && (tabla.selectare == 5)) {
-                tabla.selectare = -1;
-                tabla.p6 = 1;
-                tabla.p5 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p6 == 0) && (tabla.selectare == 14)) {
-                tabla.selectare = -1;
-                tabla.p6 = 1;
-                tabla.p14 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 7:
-            {
-              if ((tabla.p7 == 0) && (tabla.selectare == 8)) {
-                tabla.selectare = -1;
-                tabla.p7 = 1;
-                tabla.p8 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p7 == 0) && (tabla.selectare == 12)) {
-                tabla.selectare = -1;
-                tabla.p7 = 1;
-                tabla.p12 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 8:
-            {
-              if ((tabla.p8 == 0) && (tabla.selectare == 7)) {
-                tabla.selectare = -1;
-                tabla.p8 = 1;
-                tabla.p7 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p8 == 0) && (tabla.selectare == 9)) {
-                tabla.selectare = -1;
-                tabla.p8 = 1;
-                tabla.p9 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p8 == 0) && (tabla.selectare == 5)) {
-                tabla.selectare = -1;
-                tabla.p8 = 1;
-                tabla.p5 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 9:
-            {
-              if ((tabla.p9 == 0) && (tabla.selectare == 8)) {
-                tabla.selectare = -1;
-                tabla.p9 = 1;
-                tabla.p8 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p9 == 0) && (tabla.selectare == 13)) {
-                tabla.selectare = -1;
-                tabla.p9 = 1;
-                tabla.p13 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 10:
-            {
-              if ((tabla.p10 == 0) && (tabla.selectare == 1)) {
-                tabla.selectare = -1;
-                tabla.p10 = 1;
-                tabla.p1 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p10 == 0) && (tabla.selectare == 11)) {
-                tabla.selectare = -1;
-                tabla.p10 = 1;
-                tabla.p11 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p10 == 0) && (tabla.selectare == 22)) {
-                tabla.selectare = -1;
-                tabla.p10 = 1;
-                tabla.p22 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 11:
-            {
-              if ((tabla.p11 == 0) && (tabla.selectare == 10)) {
-                tabla.selectare = -1;
-                tabla.p11 = 1;
-                tabla.p10 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p11 == 0) && (tabla.selectare == 12)) {
-                tabla.selectare = -1;
-                tabla.p11 = 1;
-                tabla.p12 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p11 == 0) && (tabla.selectare == 4)) {
-                tabla.selectare = -1;
-                tabla.p11 = 1;
-                tabla.p4 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p11 == 0) && (tabla.selectare == 19)) {
-                tabla.selectare = -1;
-                tabla.p11 = 1;
-                tabla.p19 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 12:
-            {
-              if ((tabla.p12 == 0) && (tabla.selectare == 11)) {
-                tabla.selectare = -1;
-                tabla.p12 = 1;
-                tabla.p11 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p12 == 0) && (tabla.selectare == 7)) {
-                tabla.selectare = -1;
-                tabla.p12 = 1;
-                tabla.p7 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p12 == 0) && (tabla.selectare == 16)) {
-                tabla.selectare = -1;
-                tabla.p12 = 1;
-                tabla.p16 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 13:
-            {
-              if ((tabla.p13 == 0) && (tabla.selectare == 14)) {
-                tabla.selectare = -1;
-                tabla.p13 = 1;
-                tabla.p14 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p13 == 0) && (tabla.selectare == 18)) {
-                tabla.selectare = -1;
-                tabla.p13 = 1;
-                tabla.p18 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p13 == 0) && (tabla.selectare == 9)) {
-                tabla.selectare = -1;
-                tabla.p13 = 1;
-                tabla.p9 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 14:
-            {
-              if ((tabla.p14 == 0) && (tabla.selectare == 13)) {
-                tabla.selectare = -1;
-                tabla.p14 = 1;
-                tabla.p13 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p14 == 0) && (tabla.selectare == 15)) {
-                tabla.selectare = -1;
-                tabla.p14 = 1;
-                tabla.p15 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p14 == 0) && (tabla.selectare == 6)) {
-                tabla.selectare = -1;
-                tabla.p14 = 1;
-                tabla.p6 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p14 == 0) && (tabla.selectare == 21)) {
-                tabla.selectare = -1;
-                tabla.p14 = 1;
-                tabla.p21 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 15:
-            {
-              if ((tabla.p15 == 0) && (tabla.selectare == 14)) {
-                tabla.selectare = -1;
-                tabla.p15 = 1;
-                tabla.p14 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p15 == 0) && (tabla.selectare == 3)) {
-                tabla.selectare = -1;
-                tabla.p15 = 1;
-                tabla.p3 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p15 == 0) && (tabla.selectare == 24)) {
-                tabla.selectare = -1;
-                tabla.p15 = 1;
-                tabla.p24 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 16:
-            {
-              if ((tabla.p16 == 0) && (tabla.selectare == 17)) {
-                tabla.selectare = -1;
-                tabla.p16 = 1;
-                tabla.p17 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p16 == 0) && (tabla.selectare == 12)) {
-                tabla.selectare = -1;
-                tabla.p16 = 1;
-                tabla.p12 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 17:
-            {
-              if ((tabla.p17 == 0) && (tabla.selectare == 16)) {
-                tabla.selectare = -1;
-                tabla.p17 = 1;
-                tabla.p16 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p17 == 0) && (tabla.selectare == 18)) {
-                tabla.selectare = -1;
-                tabla.p17 = 1;
-                tabla.p18 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p17 == 0) && (tabla.selectare == 20)) {
-                tabla.selectare = -1;
-                tabla.p17 = 1;
-                tabla.p20 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 18:
-            {
-              if ((tabla.p18 == 0) && (tabla.selectare == 17)) {
-                tabla.selectare = -1;
-                tabla.p18 = 1;
-                tabla.p17 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p18 == 0) && (tabla.selectare == 13)) {
-                tabla.selectare = -1;
-                tabla.p18 = 1;
-                tabla.p13 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 19:
-            {
-              if ((tabla.p19 == 0) && (tabla.selectare == 20)) {
-                tabla.selectare = -1;
-                tabla.p19 = 1;
-                tabla.p20 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p19 == 0) && (tabla.selectare == 11)) {
-                tabla.selectare = -1;
-                tabla.p19 = 1;
-                tabla.p11 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 20:
-            {
-              if ((tabla.p20 == 0) && (tabla.selectare == 19)) {
-                tabla.selectare = -1;
-                tabla.p20 = 1;
-                tabla.p19 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p20 == 0) && (tabla.selectare == 21)) {
-                tabla.selectare = -1;
-                tabla.p20 = 1;
-                tabla.p21 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p20 == 0) && (tabla.selectare == 23)) {
-                tabla.selectare = -1;
-                tabla.p20 = 1;
-                tabla.p23 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p20 == 0) && (tabla.selectare == 17)) {
-                tabla.selectare = -1;
-                tabla.p20 = 1;
-                tabla.p17 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 21:
-            {
-              if ((tabla.p21 == 0) && (tabla.selectare == 20)) {
-                tabla.selectare = -1;
-                tabla.p21 = 1;
-                tabla.p16 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p21 == 0) && (tabla.selectare == 14)) {
-                tabla.selectare = -1;
-                tabla.p21 = 1;
-                tabla.p14 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 22:
-            {
-              if ((tabla.p22 == 0) && (tabla.selectare == 23)) {
-                tabla.selectare = -1;
-                tabla.p22 = 1;
-                tabla.p23 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p22 == 0) && (tabla.selectare == 10)) {
-                tabla.selectare = -1;
-                tabla.p22 = 1;
-                tabla.p10 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 23:
-            {
-              if ((tabla.p23 == 0) && (tabla.selectare == 22)) {
-                tabla.selectare = -1;
-                tabla.p23 = 1;
-                tabla.p22 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p23 == 0) && (tabla.selectare == 24)) {
-                tabla.selectare = -1;
-                tabla.p23 = 1;
-                tabla.p24 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p23 == 0) && (tabla.selectare == 20)) {
-                tabla.selectare = -1;
-                tabla.p23 = 1;
-                tabla.p20 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
-          case 24:
-            {
-              if ((tabla.p24 == 0) && (tabla.selectare == 23)) {
-                tabla.selectare = -1;
-                tabla.p24 = 1;
-                tabla.p23 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-              if ((tabla.p24 == 0) && (tabla.selectare == 15)) {
-                tabla.selectare = -1;
-                tabla.p24 = 1;
-                tabla.p15 = 0;
-                int _i = verificaMoara(i, 1, tabla);
-                if (_i > 0) {
-                  tabla.pieseDeLuatOm = _i;
-                } else {
-                  tabla.rand = 'ai';
-                }
-              }
-
-              break;
-            }
+        if (statusPozitie == 0) {
+          tabla = mutaPiesa(pozitie, tabla);
         }
+
         if (tabla.rand == 'ai') {
           tabla = randulCalculatoruluiEtapa2(tabla);
         }
       }
     }
-  } else {
+  } else if (tabla.pieseDeLuatOm > 0) {
     // Daca avem de luat piese, le luam
-    switch (i) {
+    switch (pozitie) {
       case 1:
         {
           if ((tabla.p1 == 2) && (verificaMoara(1, 2, tabla) == 0)) {
@@ -1516,9 +240,7 @@ Future<Tabla> onCercClick(int i) async {
     }
   }
 
-
   db.updateGameState(tabla);
-
 
   tabla = await db.getGameState();
   debugPrint(
@@ -1530,16 +252,631 @@ Future<Tabla> onCercClick(int i) async {
           .p16}; p17 = ${tabla.p17}; p18 = ${tabla.p18}; p19 = ${tabla
           .p19}; p20 = ${tabla.p20}; p1 = ${tabla.p1}; p21 = ${tabla
           .p21}; p23 = ${tabla.p23}; p24 = ${tabla.p24}; ');
-  debugPrint('randul = ${tabla.rand}; etapa = ${tabla
-      .etapa}; piese de luat om = ${tabla.pieseDeLuatOm}; selectat = ${tabla
-      .selectare}');
+  debugPrint(
+      'randul = ${tabla.rand}; etapa = ${tabla
+          .etapa}; piese de luat om = ${tabla.pieseDeLuatOm}; selectat = ${tabla
+          .selectare}');
   return tabla;
 }
 
-Tabla plaseazaPiesa(int i, Tabla tabla) {
+Tabla mutaPiesa(int pozitie, Tabla tabla) {
+  switch (pozitie) {
+    case 1:
+      {
+        if (tabla.selectare == 2) {
+          tabla.p2 = 0;
+          tabla.p1 = 1;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 10) {
+          tabla.p1 = 1;
+          tabla.p10 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 2:
+      {
+        if (tabla.selectare == 1) {
+          tabla.p1 = 0;
+          tabla.p2 = 1;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 3) {
+          tabla.p3 = 0;
+          tabla.p2 = 1;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 5) {
+          tabla.p5 = 0;
+          tabla.p2 = 1;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 3:
+      {
+        if (tabla.selectare == 2) {
+          tabla.p3 = 1;
+          tabla.p2 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 15) {
+          tabla.p3 = 1;
+          tabla.p15 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 4:
+      {
+        if (tabla.selectare == 5) {
+          tabla.p4 = 1;
+          tabla.p5 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 11) {
+          tabla.p4 = 1;
+          tabla.p11 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 5:
+      {
+        if (tabla.selectare == 2) {
+          tabla.p5 = 1;
+          tabla.p2 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 8) {
+          tabla.p5 = 1;
+          tabla.p8 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 4) {
+          tabla.p5 = 1;
+          tabla.p4 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 6) {
+          tabla.p5 = 1;
+          tabla.p6 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 6:
+      {
+        if (tabla.selectare == 5) {
+          tabla.p6 = 1;
+          tabla.p5 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 14) {
+          tabla.p6 = 1;
+          tabla.p14 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 7:
+      {
+        if (tabla.selectare == 8) {
+          tabla.p7 = 1;
+          tabla.p8 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 12) {
+          tabla.p7 = 1;
+          tabla.p12 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 8:
+      {
+        if (tabla.selectare == 7) {
+          tabla.p8 = 1;
+          tabla.p7 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 9) {
+          tabla.p8 = 1;
+          tabla.p9 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 5) {
+          tabla.p8 = 1;
+          tabla.p5 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 9:
+      {
+        if (tabla.selectare == 8) {
+          tabla.p9 = 1;
+          tabla.p8 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 13) {
+          tabla.p9 = 1;
+          tabla.p13 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 10:
+      {
+        if (tabla.selectare == 1) {
+          tabla.p10 = 1;
+          tabla.p1 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 11) {
+          tabla.p10 = 1;
+          tabla.p11 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 22) {
+          tabla.p10 = 1;
+          tabla.p22 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 11:
+      {
+        if (tabla.selectare == 10) {
+          tabla.p11 = 1;
+          tabla.p10 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 12) {
+          tabla.p11 = 1;
+          tabla.p12 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 4) {
+          tabla.p11 = 1;
+          tabla.p4 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 19) {
+          tabla.p11 = 1;
+          tabla.p19 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 12:
+      {
+        if (tabla.selectare == 11) {
+          tabla.p12 = 1;
+          tabla.p11 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 7) {
+          tabla.p12 = 1;
+          tabla.p7 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 16) {
+          tabla.p12 = 1;
+          tabla.p16 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 13:
+      {
+        if (tabla.selectare == 14) {
+          tabla.p13 = 1;
+          tabla.p14 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 18) {
+          tabla.p13 = 1;
+          tabla.p18 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 9) {
+          tabla.p13 = 1;
+          tabla.p9 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 14:
+      {
+        if (tabla.selectare == 13) {
+          tabla.p14 = 1;
+          tabla.p13 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 15) {
+          tabla.p14 = 1;
+          tabla.p15 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 6) {
+          tabla.p14 = 1;
+          tabla.p6 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 21) {
+          tabla.p14 = 1;
+          tabla.p21 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 15:
+      {
+        if (tabla.selectare == 14) {
+          tabla.p15 = 1;
+          tabla.p14 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 3) {
+          tabla.p15 = 1;
+          tabla.p3 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 24) {
+          tabla.p15 = 1;
+          tabla.p24 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 16:
+      {
+        if (tabla.selectare == 17) {
+          tabla.p16 = 1;
+          tabla.p17 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 12) {
+          tabla.p16 = 1;
+          tabla.p12 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 17:
+      {
+        if (tabla.selectare == 16) {
+          tabla.p17 = 1;
+          tabla.p16 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 18) {
+          tabla.p17 = 1;
+          tabla.p18 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 20) {
+          tabla.p17 = 1;
+          tabla.p20 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 18:
+      {
+        if (tabla.selectare == 17) {
+          tabla.p18 = 1;
+          tabla.p17 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 13) {
+          tabla.p18 = 1;
+          tabla.p13 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 19:
+      {
+        if (tabla.selectare == 20) {
+          tabla.p19 = 1;
+          tabla.p20 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 11) {
+          tabla.p19 = 1;
+          tabla.p11 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 20:
+      {
+        if (tabla.selectare == 19) {
+          tabla.p20 = 1;
+          tabla.p19 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 21) {
+          tabla.p20 = 1;
+          tabla.p21 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 23) {
+          tabla.p20 = 1;
+          tabla.p23 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 17) {
+          tabla.p20 = 1;
+          tabla.p17 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 21:
+      {
+        if (tabla.selectare == 20) {
+          tabla.p21 = 1;
+          tabla.p20 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 14) {
+          tabla.p21 = 1;
+          tabla.p14 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 22:
+      {
+        if (tabla.selectare == 23) {
+          tabla.p22 = 1;
+          tabla.p23 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 10) {
+          tabla.p22 = 1;
+          tabla.p10 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 23:
+      {
+        if (tabla.selectare == 22) {
+          tabla.p23 = 1;
+          tabla.p22 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 24) {
+          tabla.p23 = 1;
+          tabla.p24 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 20) {
+          tabla.p23 = 1;
+          tabla.p20 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+    case 24:
+      {
+        if (tabla.selectare == 23) {
+          tabla.p24 = 1;
+          tabla.p23 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+        if (tabla.selectare == 15) {
+          tabla.p24 = 1;
+          tabla.p15 = 0;
+          tabla = postMutare(pozitie, tabla);
+        }
+
+        break;
+      }
+  }
+  return tabla;
+}
+
+Tabla postMutare(int pozitie, Tabla tabla) {
+  tabla.selectare = -1;
+  int _i = verificaMoara(pozitie, 1, tabla);
+  if (_i > 0) {
+    tabla.pieseDeLuatOm = _i;
+  } else {
+    tabla.rand = 'ai';
+  }
+  return tabla;
+}
+
+// Plaseaza piesa jucator pe pozitie
+Tabla plaseazaPiesa(int pozitie, Tabla tabla) {
+  switch (pozitie) {
+    case 1:
+      {
+        tabla.p1 = 1;
+
+        break;
+      }
+    case 2:
+      {
+        tabla.p2 = 1;
+
+        break;
+      }
+    case 3:
+      {
+        tabla.p3 = 1;
+
+        break;
+      }
+    case 4:
+      {
+        tabla.p4 = 1;
+
+        break;
+      }
+    case 5:
+      {
+        tabla.p5 = 1;
+
+        break;
+      }
+    case 6:
+      {
+        tabla.p6 = 1;
+
+        break;
+      }
+    case 7:
+      {
+        tabla.p7 = 1;
+
+        break;
+      }
+    case 8:
+      {
+        tabla.p8 = 1;
+
+        break;
+      }
+    case 9:
+      {
+        tabla.p9 = 1;
+
+        break;
+      }
+    case 10:
+      {
+        tabla.p10 = 1;
+
+        break;
+      }
+    case 11:
+      {
+        tabla.p11 = 1;
+
+        break;
+      }
+    case 12:
+      {
+        tabla.p12 = 1;
+
+        break;
+      }
+    case 13:
+      {
+        tabla.p13 = 1;
+
+        break;
+      }
+    case 14:
+      {
+        tabla.p14 = 1;
+
+        break;
+      }
+    case 15:
+      {
+        tabla.p15 = 1;
+
+        break;
+      }
+    case 16:
+      {
+        tabla.p16 = 1;
+
+        break;
+      }
+    case 17:
+      {
+        tabla.p17 = 1;
+
+        break;
+      }
+    case 18:
+      {
+        tabla.p18 = 1;
+
+        break;
+      }
+    case 19:
+      {
+        tabla.p19 = 1;
+
+        break;
+      }
+    case 20:
+      {
+        tabla.p20 = 1;
+
+        break;
+      }
+    case 21:
+      {
+        tabla.p21 = 1;
+
+        break;
+      }
+    case 22:
+      {
+        tabla.p22 = 1;
+
+        break;
+      }
+    case 23:
+      {
+        tabla.p23 = 1;
+
+        break;
+      }
+    case 24:
+      {
+        tabla.p24 = 1;
+
+        break;
+      }
+  }
+  tabla = postPlasarePiesa(pozitie, tabla);
+  return tabla;
+}
+
+// O piesa mai putin de pus pe tabla, verificare moara, rand ai
+Tabla postPlasarePiesa(int pozitie, Tabla tabla) {
   tabla.pieseRamaseEtapa1--;
-  tabla.pieseDeLuatOm = verificaMoara(i, 1, tabla);
-  tabla.rand = 'ai';
+  int _i = verificaMoara(pozitie, 1, tabla);
+  if (_i > 0) {
+    tabla.pieseDeLuatOm = _i;
+  } else {
+    tabla.rand = 'ai';
+  }
   return tabla;
 }
 
