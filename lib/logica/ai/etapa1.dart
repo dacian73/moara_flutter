@@ -199,6 +199,9 @@ Tabla randulCalculatoruluiEtapa1(Tabla tabla) {
           break;
         }
     }
+    if (tabla.pieseRamaseEtapa1AI == 0) {
+      tabla.etapa = 2;
+    }
   } else {tabla.etapa = 2;}
 
   var db = new DatabaseHelper();

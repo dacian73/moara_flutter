@@ -256,6 +256,8 @@ Future<Tabla> onCercClick(int pozitie, statusPozitie, bool isSelectata) async {
       'randul = ${tabla.rand}; etapa = ${tabla
           .etapa}; piese de luat om = ${tabla.pieseDeLuatOm}; selectat = ${tabla
           .selectare}');
+  debugPrint('piese ramase om = ${tabla
+      .pieseRamaseEtapa1} iar piese ramase ai = ${tabla.pieseRamaseEtapa1AI}');
   return tabla;
 }
 
