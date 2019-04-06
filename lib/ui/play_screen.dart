@@ -32,7 +32,7 @@ class PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
               new Padding(
                   padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Container(
-                    color: Colors.black,
+                    color: Colors.amber,
                   )
               ),
               GridView.count(
@@ -140,6 +140,17 @@ class PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
   }
 
   Widget Pozitie (x, statusPozitie) {
+    Color culoareJucator;
+    Color culoareAI;
+    debugPrint('culoare jucator citita din db = ${tabla.culoare}');
+    if (tabla.culoare == 'alb') {
+      culoareJucator = Colors.white;
+      culoareAI = Colors.black87;
+    } else {
+      culoareJucator = Colors.black87;
+      culoareAI = Colors.white;
+    }
+
     switch (statusPozitie) {
       case 0:
         {
@@ -156,21 +167,21 @@ class PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
       case 1:
         {
           if (tabla.selectare == x) {
-          return new InkWell(
-            child: Container(
-              child: Container(color: Colors.white,),
-              color: Colors.red,
-              padding: EdgeInsets.all(2.0),
-              margin: EdgeInsets.all(4.0),
-            ),
-            onTap: () {
-              _click(x, statusPozitie);
-            },
-          );
+            return new InkWell(
+              child: Container(
+                child: Container(color: culoareJucator,),
+                color: Colors.red,
+                padding: EdgeInsets.all(2.0),
+                margin: EdgeInsets.all(4.0),
+              ),
+              onTap: () {
+                _click(x, statusPozitie);
+              },
+            );
           } else {
             return new InkWell(
               child: Container(
-                color: Colors.white,
+                color: culoareJucator,
                 margin: EdgeInsets.all(4.0),
               ),
               onTap: () {
@@ -184,7 +195,7 @@ class PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
         {
           return new InkWell(
             child: Container(
-              color: Colors.black54,
+              color: culoareAI,
               margin: EdgeInsets.all(4.0),
             ),
             onTap: () {

@@ -36,6 +36,7 @@ Tabla randulCalculatoruluiEtapa1(Tabla tabla) {
     if (lista[i].ocupat()) {lista[i].valoare = -1;}
   }
 
+
   // RANDOM
   lista = bubbleSort(lista);
 
@@ -203,6 +204,8 @@ Tabla randulCalculatoruluiEtapa1(Tabla tabla) {
       tabla.etapa = 2;
     }
   } else {tabla.etapa = 2;}
+
+  tabla.rand = 'om';
 
   var db = new DatabaseHelper();
   db.updateGameState(tabla);

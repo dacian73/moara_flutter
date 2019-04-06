@@ -66,3 +66,7 @@ class _SelectScreenState extends State<SelectScreen>{
     );
   }
 }
+
+Widget colorSelector() {
+  return Container();
+}

@@ -893,43 +893,5 @@ int swap(int a) {
 
 Future<Tabla> getTabla() async {
   Tabla tabla = await db.getGameState();
-
-  // Daca e joc nou, tabla e initializata si salvata
-  if (tabla == null) {
-    tabla = new Tabla(
-        'level',
-        1,
-        'alb',
-        'om',
-        9,
-        9,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        -1,
-        0);
-    await db.saveGameState(tabla);
-  }
   return tabla;
 }

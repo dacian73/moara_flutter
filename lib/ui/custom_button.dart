@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:moara_flutter/db/database_helper.dart';
 import 'package:moara_flutter/logica/tabla.dart';
@@ -53,14 +55,25 @@ class CustomButton extends StatelessWidget {
             onPressed: () async {
               var db = new DatabaseHelper();
               Tabla tabla = getNewTabla();
+
               if (title == 'New Game') {
                 db.deleteSavedGame();
+
 
                 Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => SelectScreen(tabla)));
               } else if (title == 'Start') {
+                var random = new Random();
+                if (random.nextBool() == true) {
+                  debugPrint('culoare alba');
+                  tabla.culoare = 'alb';
+                } else {
+                  debugPrint('culoare neagra');
+                  tabla.culoare = 'negru';
+                }
+                db.saveGameState(tabla);
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => PlayScreen(tabla)));
               }
@@ -71,6 +84,7 @@ class CustomButton extends StatelessWidget {
     }
   }
 }
+
 Tabla getNewTabla() {
   return new Tabla('level', 1, 'alb', 'om', 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
       0,
