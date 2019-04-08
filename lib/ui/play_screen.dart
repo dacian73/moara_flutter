@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:moara_flutter/logica/on_click.dart';
 import 'package:moara_flutter/logica/tabla.dart';
 import 'package:moara_flutter/ui/play_title.dart';
+import 'package:moara_flutter/logica/ai/etapa1.dart';
+import 'package:moara_flutter/logica/ai/etapa2.dart';
 
 class PlayScreen extends StatefulWidget {
   final Tabla tabla;
+
   PlayScreen(this.tabla);
 
   @override
   State<StatefulWidget> createState() {
-
     return new PlayScreenState(tabla);
   }
 }
@@ -17,6 +19,7 @@ class PlayScreen extends StatefulWidget {
 class PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
 
   Tabla tabla;
+
   PlayScreenState(this.tabla);
 
   @override
@@ -128,7 +131,7 @@ class PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
           ],));
   }
 
-  Widget Cerc (i, x, statusPozitie) {
+  Widget Cerc(i, x, statusPozitie) {
     if (i == 1) {
       return Pozitie(x, statusPozitie);
     } else
@@ -136,10 +139,9 @@ class PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
         color: Colors.amber.shade600,
         margin: EdgeInsets.all(4.0),
       );
-
   }
 
-  Widget Pozitie (x, statusPozitie) {
+  Widget Pozitie(x, statusPozitie) {
     Color culoareJucator;
     Color culoareAI;
     debugPrint('culoare jucator citita din db = ${tabla.culoare}');
@@ -209,14 +211,26 @@ class PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
   void _click(int pozitie, statusPozitie) async {
     debugPrint('status pozitie clickuita este $statusPozitie');
     bool isSelectata = (tabla.selectare == pozitie);
+
     tabla = await onCercClick(pozitie, statusPozitie, isSelectata);
+    db.updateGameState(tabla);
 
     setState(() {});
+
+    if (tabla.rand == 'ai') {
+      if (tabla.etapa == 1) {
+        tabla = await randulCalculatoruluiEtapa1(tabla);
+        db.updateGameState(tabla);
+        setState(() {});
+      } else if (tabla.etapa == 2) {
+        tabla = await randulCalculatoruluiEtapa2(tabla);
+        db.updateGameState(tabla);
+        setState(() {});
+      }
+    }
   }
 
   Widget titlePixelGrid(Tabla tabla) {
     return PlayTitle(tabla);
   }
-
-
 } // end of PlayScreenState

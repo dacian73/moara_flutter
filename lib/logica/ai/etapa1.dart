@@ -4,7 +4,7 @@ import 'package:moara_flutter/db/database_helper.dart';
 import 'package:moara_flutter/logica/ai/logicaPentruToateEtapele.dart';
 import 'package:moara_flutter/logica/tabla.dart';
 
-Tabla randulCalculatoruluiEtapa1(Tabla tabla) {
+Future<Tabla> randulCalculatoruluiEtapa1(Tabla tabla) async {
   List<Pozitie> lista = [
     new Pozitie(1, 0, tabla.p1),
     new Pozitie(2, 0, tabla.p2),
@@ -39,6 +39,8 @@ Tabla randulCalculatoruluiEtapa1(Tabla tabla) {
 
   // RANDOM
   lista = bubbleSort(lista);
+
+  await new Future.delayed(const Duration(milliseconds: 500));
 
   // Verifica daca e etapa 1 altfel treci la 2
   if ((tabla.etapa == 1) && (tabla.pieseRamaseEtapa1AI > 0)) {

@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:moara_flutter/logica/ai/logicaPentruToateEtapele.dart';
 import 'package:moara_flutter/logica/tabla.dart';
 
-Tabla randulCalculatoruluiEtapa2(Tabla tabla) {
+Future<Tabla> randulCalculatoruluiEtapa2(Tabla tabla) async {
   List<Mutare> mutariPosibile = [
     new Mutare(10, 1, false, -1),
     new Mutare(2, 1, false, -1),
@@ -357,6 +357,7 @@ Tabla randulCalculatoruluiEtapa2(Tabla tabla) {
   final _random = new Random();
   Mutare mutareaAleasa = top[_random.nextInt(top.length)];
 
+
   // Efecturaza mutarea aleasa
   switch (mutareaAleasa.getStart) {
     case 1:
@@ -507,7 +508,7 @@ Tabla randulCalculatoruluiEtapa2(Tabla tabla) {
       break;
   }
   tabla.rand = 'om';
-
+  await new Future.delayed(const Duration(milliseconds: 500));
   return tabla;
 }
 

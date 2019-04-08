@@ -10,39 +10,40 @@ var db = new DatabaseHelper();
 Future<Tabla> onCercClick(int pozitie, statusPozitie, bool isSelectata) async {
   Tabla tabla = await getTabla();
 
-  if (tabla.pieseDeLuatOm == 0) {
-    if ((tabla.etapa == 1) &&
+  if ((tabla.rand == 'om') && (tabla.pieseDeLuatOm == 0) &&
+      (tabla.etapa == 1) &&
         (statusPozitie == 0) &&
         (tabla.pieseRamaseEtapa1 > 0)) {
       // Aseaza o piesa pe tabla
       tabla = plaseazaPiesa(pozitie, tabla);
-      if (tabla.rand == 'ai') {
-        tabla = randulCalculatoruluiEtapa1(tabla);
-      }
-    } else if (tabla.etapa == 2) {
-      bool iesire = false;
+      return tabla;
+  }
 
       //Selecteaza/ Deselecteaza o piesa
-      if ((statusPozitie == 1) && (tabla.selectare != pozitie)) {
+  if ((tabla.rand == 'om') && (tabla.pieseDeLuatOm == 0) &&
+      (tabla.etapa == 2) && (statusPozitie == 1) &&
+      (tabla.selectare != pozitie)) {
         tabla.selectare = pozitie;
-        iesire = true;
-      } else if ((statusPozitie == 1) && (tabla.selectare == pozitie)) {
+        return tabla;
+  }
+
+  if ((tabla.rand == 'om') && (tabla.pieseDeLuatOm == 0) &&
+      (tabla.etapa == 2) && (statusPozitie == 1) &&
+      (tabla.selectare == pozitie)) {
         tabla.selectare = -1;
-        iesire = true;
+        return tabla;
       }
 
-      if (!iesire) {
+
         // Mutare piesa selectata
-        if (statusPozitie == 0) {
+  if ((tabla.rand == 'om') && (tabla.pieseDeLuatOm == 0) &&
+      (tabla.etapa == 2) && (statusPozitie == 0)) {
           tabla = mutaPiesa(pozitie, tabla);
+          return tabla;
         }
 
-        if (tabla.rand == 'ai') {
-          tabla = randulCalculatoruluiEtapa2(tabla);
-        }
-      }
-    }
-  } else if (tabla.pieseDeLuatOm > 0) {
+
+  if (tabla.pieseDeLuatOm > 0) {
     // Daca avem de luat piese, le luam
     switch (pozitie) {
       case 1:
@@ -238,26 +239,10 @@ Future<Tabla> onCercClick(int pozitie, statusPozitie, bool isSelectata) async {
           break;
         }
     }
+    tabla.rand = 'ai';
+    return tabla;
   }
 
-  db.updateGameState(tabla);
-
-  tabla = await db.getGameState();
-  debugPrint(
-      'p1 = ${tabla.p1}; p2 = ${tabla.p2}; p3 = ${tabla.p3}; p4 = ${tabla
-          .p4}; p5 = ${tabla.p5}; p6 = ${tabla.p6}; p7 = ${tabla
-          .p7}; p8 = ${tabla.p8}; p9 = ${tabla.p9}; p10 = ${tabla
-          .p10}; p11 = ${tabla.p11}; p12 = ${tabla.p12}; p13 = ${tabla
-          .p13}; p14 = ${tabla.p14}; p15 = ${tabla.p15}; p16 = ${tabla
-          .p16}; p17 = ${tabla.p17}; p18 = ${tabla.p18}; p19 = ${tabla
-          .p19}; p20 = ${tabla.p20}; p1 = ${tabla.p1}; p21 = ${tabla
-          .p21}; p23 = ${tabla.p23}; p24 = ${tabla.p24}; ');
-  debugPrint(
-      'randul = ${tabla.rand}; etapa = ${tabla
-          .etapa}; piese de luat om = ${tabla.pieseDeLuatOm}; selectat = ${tabla
-          .selectare}');
-  debugPrint('piese ramase om = ${tabla
-      .pieseRamaseEtapa1} iar piese ramase ai = ${tabla.pieseRamaseEtapa1AI}');
   return tabla;
 }
 
@@ -876,6 +861,7 @@ Tabla postPlasarePiesa(int pozitie, Tabla tabla) {
   int _i = verificaMoara(pozitie, 1, tabla);
   if (_i > 0) {
     tabla.pieseDeLuatOm = _i;
+    tabla.rand = 'om';
   } else {
     tabla.rand = 'ai';
   }
