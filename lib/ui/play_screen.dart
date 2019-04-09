@@ -4,6 +4,7 @@ import 'package:moara_flutter/logica/tabla.dart';
 import 'package:moara_flutter/ui/play_title.dart';
 import 'package:moara_flutter/logica/ai/etapa1.dart';
 import 'package:moara_flutter/logica/ai/etapa2.dart';
+import 'package:moara_flutter/ui/play_footer.dart';
 
 class PlayScreen extends StatefulWidget {
   final Tabla tabla;
@@ -40,7 +41,7 @@ class PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
               ),
               GridView.count(
                 primary: false,
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
                 crossAxisSpacing: 0.0,
                 crossAxisCount: 9,
                 children: <Widget>[
@@ -127,7 +128,9 @@ class PlayScreenState extends State<PlayScreen> with TickerProviderStateMixin {
                   Cerc(1, 24, tabla.p24),
                 ],
               ),
+
             ])),
+            PlayFooter(tabla),
           ],));
   }
 
